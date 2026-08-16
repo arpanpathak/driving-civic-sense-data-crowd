@@ -5,20 +5,11 @@
 
 **The official training-dataset pack and field-validation ground-truth repository for [driving-civicsense-vision-model](https://github.com/arpanpathak/driving-civicsense-vision-model), an edge-AI co-pilot for intersection discipline, lane courtesy, and road-hazard alerts.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
-<br>
-[![CI](https://img.shields.io/github/actions/workflow/status/arpanpathak/driving-civic-sense-data-crowd/ci.yml?style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/arpanpathak/driving-civic-sense-data-crowd/actions)
-<br>
-[![Rust](https://img.shields.io/badge/Rust-1.96+-orange?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org)
-[![YOLOv8](https://img.shields.io/badge/YOLO-v8%2Fv11-00BFFF?style=flat-square)](https://github.com/ultralytics/ultralytics)
-[![COCO](https://img.shields.io/badge/COCO-CC%20BY%204.0-999?style=flat-square)](https://cocodataset.org/)
-[![BDD100K](https://img.shields.io/badge/BDD100K-NC--SA-blue?style=flat-square)](https://www.lds.ac.cn/dataset/bdd100k)
-[![UA-DETRAC](https://img.shields.io/badge/UA--DETRAC-Urban-brightgreen?style=flat-square)](https://detrac-db.rit.albany.edu/)
-[![CARLA](https://img.shields.io/badge/Sim-CARLA-00BCF2?style=flat-square)](https://carla.org/)
-[![SUMO](https://img.shields.io/badge/Sim-SUMO-006600?style=flat-square)](https://eclipse.dev/sumo/)
-<br>
-[![Submodule](https://img.shields.io/badge/submodule-of%20CivicSense-6a4fa3?style=flat-square)](https://github.com/arpanpathak/driving-civicsense-vision-model)
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md) [![CI](https://img.shields.io/github/actions/workflow/status/arpanpathak/driving-civic-sense-data-crowd/ci.yml?style=flat-square&logo=githubactions&logoColor=white&label=CI)](https://github.com/arpanpathak/driving-civic-sense-data-crowd/actions) [![Rust](https://img.shields.io/badge/Rust-1.96+-orange?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org) [![YOLOv8](https://img.shields.io/badge/YOLO-v8%2Fv11-00BFFF?style=flat-square)](https://github.com/ultralytics/ultralytics) [![COCO](https://img.shields.io/badge/COCO-CC%20BY%204.0-999?style=flat-square)](https://cocodataset.org/) [![BDD100K](https://img.shields.io/badge/BDD100K-NC--SA-blue?style=flat-square)](https://www.lds.ac.cn/dataset/bdd100k) [![UA-DETRAC](https://img.shields.io/badge/UA--DETRAC-Urban-brightgreen?style=flat-square)](https://detrac-db.rit.albany.edu/) [![CARLA](https://img.shields.io/badge/Sim-CARLA-00BCF2?style=flat-square)](https://carla.org/) [![SUMO](https://img.shields.io/badge/Sim-SUMO-006600?style=flat-square)](https://eclipse.dev/sumo/) [![Submodule](https://img.shields.io/badge/submodule-of%20CivicSense-6a4fa3?style=flat-square)](https://github.com/arpanpathak/driving-civicsense-vision-model)
+
+</div>
 
 ---
 
@@ -83,9 +74,11 @@ shapes) lives in `assets/cnn-architecture.svg`:
   <img src="assets/cnn-architecture.svg" alt="CivicSense CNN architecture: C2f backbone, SPPF, PAN neck, 3 decoupled detection heads" width="900"/>
 </p>
 
-The head outputs are `(4 box coords + 1 objectness + 7 class scores)` per
-anchor at 80×80, 40×40 and 20×20 scales — the exact shapes the trainer's
-`configs/dataset.yaml` expects.
+Trained as `yolov8n.pt` at `imgsz=640` (see `CLOUD_TRAINING.md`): C2f repeats
+3/6/6/3, channels 16/32/32/64/64/128/128/256/256/256, SPPF pooling, and an
+anchor-free head — each anchor predicts `4 box coords + 7 class scores` (11
+channels, no objectness) at 80×80, 40×40 and 20×20 scales, decoded by
+`AnchorGrid` in `src/detection/yolo.rs` into 8400 predictions.
 
 ## Field-validation ground truth
 
