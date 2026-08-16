@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # ─────────────────────────────────────────────────────────────────────
-# Fetch public driving/perception datasets that feed the CivicSense
+# 📥 Fetch public driving/perception datasets that feed the CivicSense
 # training pack. Nothing here is committed to git: it only populates
 # data/raw/ with upstream archives, which are referenced, never stored.
 #
 # Usage:
 #   ./scripts/download_public.sh [--coco-root PATH] [--no-bdd100k] ...
 #
-# The downloads are large. Read docs/DATA_LICENSES.md and respect each
+# ⚠️ The downloads are large. Read docs/DATA_LICENSES.md and respect each
 # dataset's terms before redistributing anything you derive from them.
 # ─────────────────────────────────────────────────────────────────────
 set -euo pipefail

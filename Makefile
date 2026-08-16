@@ -1,4 +1,4 @@
-# ── CivicSense Data Pack — Makefile ──────────────────────
+# ── CivicSense Data Pack · Makefile ─────────────────────
 # The data-pack is a companion repo: lean in git (no pixels), rich in
 # tooling. It contains Rust validators + Python aggregators that turn
 # public datasets into the YOLO layout CivicSense trains on.
@@ -19,20 +19,20 @@ PY    := python3
 
 all: validate lint
 
-## Run Rust unit tests, doc-tests, and build the CLI
+## ✅ Run Rust unit tests, doc-tests, and build the CLI
 validate:
 	cargo test
 
-## Strict linting following CODING_STANDARDS (borrowed from main repo)
+## 🧹 Strict linting following CODING_STANDARDS (borrowed from main repo)
 lint:
 	cargo clippy --all-targets -- -D warnings
 	cargo fmt --check
 
-## Fetch public dataset annotations (metadata only by default)
+## 📥 Fetch public dataset annotations (metadata only by default)
 download:
 	./scripts/download_public.sh
 
-## Aggregate COCO annotations into the training layout (example)
+## 🧪 Aggregate COCO annotations into the training layout (example)
 aggregate:
 	cd python && $(PY) -m civicsense_datapack.aggregate_coco \
 		--coco-ann "../data/raw/coco_annotations/annotations/instances_train2017.json" \
@@ -40,12 +40,12 @@ aggregate:
 		--out ../datasets/training \
 		--split train
 
-## Lint the Python tooling
+## 🐍 Lint the Python tooling
 lint-py:
 	flake8 python/ --count --max-complexity=10 --statistics
 	black --check python/
 
-## Clean downloaded artifacts (keeps directory layout)
+## 🧼 Clean downloaded artifacts (keeps directory layout)
 clean:
 	rm -rf data/raw/* data/processed/*
 

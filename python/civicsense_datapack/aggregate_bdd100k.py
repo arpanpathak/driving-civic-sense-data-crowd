@@ -2,7 +2,7 @@
 """Aggregate BDD100K detection labels into the CivicSense YOLO layout.
 
 BDD100K is a large, diverse driving dataset (100k images, urban/suburban/
-highway, all weather and times of day) — ideal for generalising the
+highway, all weather and times of day) that is ideal for generalising the
 CivicSense detector. Its detection labels are JSON, one file per image:
 ``det_20/<name>.json`` with ``[label]`` entries holding ``box2d`` and
 ``category``.

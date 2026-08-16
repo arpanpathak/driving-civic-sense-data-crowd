@@ -3,9 +3,9 @@
 # 🅿 CivicSense Data Pack
 
 > *"A model is only as honest as the data it's graded on."*
-> *Data, labels, and ground truth that keep CivicSense's perception honest — MIT-licensed, community-contributed.*
+> *Data, labels, and ground truth that keep CivicSense's perception honest. MIT-licensed, community-contributed.*
 
-**The official training-dataset pack and field-validation ground-truth repository for the [driving-civicsense-vision-model](https://github.com/arpanpathak/driving-civicsense-vision-model) — an edge-AI co-pilot for intersection discipline, lane courtesy, and road-hazard alerts.**
+**The official training-dataset pack and field-validation ground-truth repository for the [driving-civicsense-vision-model](https://github.com/arpanpathak/driving-civicsense-vision-model), an edge-AI co-pilot for intersection discipline, lane courtesy, and road-hazard alerts.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
@@ -24,49 +24,69 @@
 
 ---
 
-## Why this repo exists
+## 🎯 Why this repo exists
 
 CivicSense is built on two pillars:
 
-1. **A perception model** — a YOLOv8n / YOLOv11n detector over **7 classes**.
-2. **A zero-training kinematic decision engine** — a formal, provable rule
+1. **A perception model.** A YOLOv8n / YOLOv11n detector over **7 classes**.
+2. **A zero-training kinematic decision engine.** A formal, provable rule
    pipeline (dilemma zone, lead-vehicle, cut-in, red/yellow/stale rules)
    that decides *when* to warn.
 
 Both pillars need data, but **they need different kinds of data**:
 
-- The **model needs training data** — labelled images of the 7 classes in
+- 🖼️ The **model needs training data**; labelled images of the 7 classes in
   YOLO format that `civicsense train prepare` can consume.
-- The **engine needs validation data** — labelled *field ground truth*
-  (synchronised ego telemetry, detections, signal phase, and the outcome
-  a correct driver+co-pilot should reach) from which we compute a confusion
-  matrix over false positives / false negatives.
+- 🧾 The **engine needs validation data**; labelled *field ground truth*
+  (synchronised ego telemetry, detections, signal phase, and the outcome a
+  correct driver+co-pilot should reach) from which we compute a confusion
+  matrix over false positives and false negatives.
 
-This repository is the single home for both, so that **every contribution
-is reusable and every claim is checkable**. It deliberately ships **no
-pixels in git** — instead it provides the schema, the validators, the
+This repository is the single home for both, so **every contribution is
+reusable and every claim is checkable**. It deliberately ships **no pixels
+in git**; instead it provides the schema, the validators, the
 public-dataset aggregation tooling, and a seed ground-truth manifest.
 
-> **The default `data/` directory in the main repo is where the training
+> 📌 **The default `data/` directory in the main repo is where the training
 > split lands.** Point the aggregation scripts here, validate with
 > `civicsense-data`, then copy into the main repo's `data/civicsense/`.
 
 ---
 
-## The 7-class vocabulary
+## 📦 Training Data Pipeline
+
+Public datasets, simulators and field captures flow through an aggregator,
+then a strict validator, into the training layout CivicSense consumes:
+
+<p align="center">
+  <img src="assets/training-pipeline.svg" alt="Training data pipeline: sources flow through aggregation and validation into the YOLO training layout" width="820"/>
+</p>
+
+## 🧭 Field-Validation Ground Truth
+
+A synchronised snapshot is fed to the decision engine, compared against a
+human-annotated expected verdict, and scored into a confusion matrix:
+
+<p align="center">
+  <img src="assets/ground-truth-pipeline.svg" alt="Field-validation pipeline: data sources form a snapshot, the engine vs expected verdict flows into a confusion matrix" width="820"/>
+</p>
+
+---
+
+## 🗂️ The 7-class vocabulary
 
 These class ids **must match** `ModelConfig::classes` in the main repo's
 `src/config.rs` and the `namespace` in `configs/dataset.yaml`:
 
 | `class_id` | Name | Notes |
 |------------|------|-------|
-| 0 | `stop_sign` | Stop sign ahead. |
-| 1 | `traffic_light` | Signal head (red/yellow/green). |
-| 2 | `crosswalk` | Pedestrian crossing markings. |
-| 3 | `vehicle` | Passenger car / motorcycle / generic. |
-| 4 | `truck` | Heavy truck. |
-| 5 | `bus` | Bus. |
-| 6 | `intersection_zone` | The junction-entrance grid the decision engine checks for occupancy. |
+| 0 | `stop_sign` | 🛑 Stop sign ahead. |
+| 1 | `traffic_light` | 🚦 Signal head (red/yellow/green). |
+| 2 | `crosswalk` | 🚶 Pedestrian crossing markings. |
+| 3 | `vehicle` | 🚗 Passenger car / motorcycle / generic. |
+| 4 | `truck` | 🚚 Heavy truck. |
+| 5 | `bus` | 🚌 Bus. |
+| 6 | `intersection_zone` | ➕ The junction-entrance grid the decision engine checks for occupancy. |
 
 Mirrored in Rust as `civicsense_data_pack::classes::CLASS_NAMES` and in
 Python as `civicsense_datapack.schema.CIVICSENSE_CLASSES`. The validators
@@ -74,7 +94,7 @@ reject any label whose `class_id` falls outside `0..7`.
 
 ---
 
-## Repository layout
+## 🧱 Repository layout
 
 ```text
 driving-civic-sense-data-crowd/
@@ -82,7 +102,7 @@ driving-civic-sense-data-crowd/
 ├── src/
 │   ├── classes.rs        # canonical 7-class vocabulary (single source of truth)
 │   ├── yolo.rs           # YOLO .txt label parser/validator
-│   ├── dataset.rs        # images/↔labels/ split-layout validator
+│   ├── dataset.rs        # images/ ↔ labels/ split-layout validator
 │   ├── ground_truth.rs   # field-validation record schema + batch validator
 │   └── bin/civicsense-data.rs  # the CLI front-end
 ├── python/
@@ -92,6 +112,9 @@ driving-civic-sense-data-crowd/
 │       └── aggregate_bdd100k.py
 ├── scripts/
 │   └── download_public.sh
+├── assets/
+│   ├── training-pipeline.svg     # training data flow diagram
+│   └── ground-truth-pipeline.svg # field-validation flow diagram
 ├── validation/
 │   └── ground-truth/manifest.json   # seed field-validation records
 ├── datasets/training/    # images/{train,val} + labels/{train,val} (gitkeeps)
@@ -103,7 +126,7 @@ driving-civic-sense-data-crowd/
 
 ---
 
-## Quick start
+## 🚀 Quick start
 
 ### 1. Validate code (Rust)
 
@@ -164,13 +187,13 @@ PYTHONPATH=. python3 -m civicsense_datapack.aggregate_coco \
     --split train
 ```
 
-> **Heavy images are opt-in.** Run `./scripts/download_public.sh --images`
+> ⚠️ **Heavy images are opt-in.** Run `./scripts/download_public.sh --images`
 > to pull the ~19 GB COCO archive. Read [`docs/DATA_LICENSES.md`](docs/DATA_LICENSES.md)
 > first.
 
 ---
 
-## Field-validation ground truth (the decision engine's report card)
+## 🧾 Field-validation ground truth (the decision engine's report card)
 
 The kinematic engine is formal, but a proof only transfers to the real
 world if evaluated against **labelled reality**. Each record in
@@ -199,18 +222,18 @@ seamlessly.
 
 **Seed records included** cover the canonical cases:
 
-- `green_clear` → should be **safe**
-- `yellow_dilemma` → should be **critical**
-- `red_stop` → should be **critical**
-- `lead_blocking` → a stopped leader in the box, should be **warning**
-- `cutin_right` → an unsignalled right-lane intruder, should be **warning**
+- ✅ `green_clear` → should be **safe**
+- ⚠️ `yellow_dilemma` → should be **critical**
+- 🛑 `red_stop` → should be **critical**
+- 🚗 `lead_blocking` → a stopped leader in the box, should be **warning**
+- ↔️ `cutin_right` → an unsignalled right-lane intruder, should be **warning**
 
 Extend the manifest with real captures from your commute (manual) or a
 CARLA/SUMO run (simulator). Keep every record a synchronised snapshot.
 
 ---
 
-## Aggregating public datasets
+## 🧲 Aggregating public datasets
 
 | Source | Class overlap | Script | License |
 |--------|--------------|--------|---------|
@@ -221,14 +244,14 @@ CARLA/SUMO run (simulator). Keep every record a synchronised snapshot.
 
 Each script maps upstream categories to CivicSense classes, filters to
 images that carry **at least one** usable label, copies the pixels, and
-writes normalised YOLO labels — all output is then verified by the Rust
+writes normalised YOLO labels; all output is then verified by the Rust
 validator so no malformed label ever enters the training pipeline.
 
 ---
 
-## License
+## 📄 License
 
-**Code:** MIT — you can use, fork, modify, and redistribute freely, even
+**Code:** MIT, you can use, fork, modify, and redistribute freely, even
 commercially.
 
 **Data:** *not owned by this repo.* Each upstream dataset retains its own
@@ -238,7 +261,7 @@ any derived pack, and record provenance for anything you contribute.
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 We need **data labelers**, **field testers**, and **tooling engineers**.
 All contributions **must pass**:

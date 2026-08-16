@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#e67e22"/>
+    </marker>
+    <linearGradient id="card2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fbf3ee"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="560" rx="12" fill="#fdfbfa"/>
+
+  <text x="500" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2c3e50">🧭 Field-Validation Ground Truth</text>
+  <text x="500" y="64" text-anchor="middle" font-size="14" fill="#7f8c8d">Synchronised snapshots score the kinematic decision engine</text>
+
+  <!-- Row 1: three data sources -->
+  <g>
+    <rect x="60" y="110" width="260" height="110" rx="10" fill="url(#card2)" stroke="#bdc3c7"/>
+    <text x="190" y="148" text-anchor="middle" font-size="28">📹</text>
+    <text x="190" y="178" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Dashcam capture</text>
+    <text x="190" y="198" text-anchor="middle" font-size="11" fill="#7f8c8d">30-60 fps RGB + metadata</text>
+
+    <rect x="370" y="110" width="260" height="110" rx="10" fill="url(#card2)" stroke="#bdc3c7"/>
+    <text x="500" y="148" text-anchor="middle" font-size="28">📡</text>
+    <text x="500" y="178" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Sensors &amp; V2I</text>
+    <text x="500" y="198" text-anchor="middle" font-size="11" fill="#7f8c8d">OBD-II speed · GNSS · SPaT phase</text>
+
+    <rect x="680" y="110" width="260" height="110" rx="10" fill="url(#card2)" stroke="#bdc3c7"/>
+    <text x="810" y="148" text-anchor="middle" font-size="28">🧑‍💻</text>
+    <text x="810" y="178" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Human annotation</text>
+    <text x="810" y="198" text-anchor="middle" font-size="11" fill="#7f8c8d">outcome + expected level</text>
+  </g>
+
+  <!-- Row 2: synchronized snapshot -->
+  <rect x="180" y="280" width="640" height="100" rx="12" fill="#fdf2e9" stroke="#e67e22" stroke-width="2"/>
+  <text x="500" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#a0522d">📋 Synchronised snapshot (ground_truth.rs schema)</text>
+  <text x="500" y="338" text-anchor="middle" font-size="12" fill="#7a5c44">ego.speed · ego.distance_to_stop_line · light · time_to_red</text>
+  <text x="500" y="358" text-anchor="middle" font-size="12" fill="#7a5c44">detections[class_id, speed, lane, turn_signal] · outcome · expected_level</text>
+
+  <line x1="190" y1="220" x2="330" y2="280" stroke="#e67e22" stroke-width="2"/>
+  <line x1="500" y1="220" x2="500" y2="280" stroke="#e67e22" stroke-width="2"/>
+  <line x1="810" y1="220" x2="670" y2="280" stroke="#e67e22" stroke-width="2"/>
+
+  <!-- Row 3: engine vs expected, then confusion matrix -->
+  <rect x="90" y="430" width="270" height="100" rx="10" fill="url(#card2)" stroke="#2980b9" stroke-width="2"/>
+  <text x="225" y="464" text-anchor="middle" font-size="15" font-weight="700" fill="#1a5276">⚙️ Decision engine</text>
+  <text x="225" y="488" text-anchor="middle" font-size="11" fill="#5d7a9e">evaluate_safety(...)</text>
+  <text x="225" y="506" text-anchor="middle" font-size="11" fill="#5d7a9e">WarningLevel per record</text>
+
+  <rect x="400" y="430" width="200" height="100" rx="10" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/>
+  <text x="500" y="464" text-anchor="middle" font-size="15" font-weight="700" fill="#6c3483">🎯 Expected</text>
+  <text x="500" y="490" text-anchor="middle" font-size="11" fill="#7d5d9e">human-annotated</text>
+  <text x="500" y="506" text-anchor="middle" font-size="11" fill="#7d5d9e">verdict</text>
+
+  <rect x="650" y="430" width="260" height="100" rx="10" fill="#eafaf1" stroke="#27ae60" stroke-width="2"/>
+  <text x="780" y="462" text-anchor="middle" font-size="15" font-weight="700" fill="#1e8449">📊 Confusion matrix</text>
+  <text x="780" y="488" text-anchor="middle" font-size="11" fill="#4a9e6e">precision · recall · latency</text>
+  <text x="780" y="506" text-anchor="middle" font-size="11" fill="#4a9e6e">false pos / false neg split</text>
+
+  <line x1="500" y1="380" x2="250" y2="430" stroke="#2980b9" stroke-width="2" marker-end="url(#arrow2)"/>
+  <line x1="510" y1="380" x2="490" y2="430" stroke="#8e44ad" stroke-width="2" marker-end="url(#arrow2)"/>
+  <line x1="600" y1="380" x2="740" y2="430" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow2)"/>
+</svg>

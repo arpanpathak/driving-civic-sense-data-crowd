@@ -1,15 +1,15 @@
-//! `civicsense-data` — CLI for validating the dataset layouts that
+//! `civicsense-data`: CLI for validating the dataset layouts that
 //! CivicSense consumes.
 //!
 //! Subcommands:
 //!
-//! - `civicsense-data training <root>` — validate the `images/`↔`labels/`
+//! - `civicsense-data training <root>`: validate the `images/`↔`labels/`
 //!   training split under a root directory (defaults to `datasets/training`).
-//! - `civicsense-data labels <file>` — parse and validate a single YOLO
+//! - `civicsense-data labels <file>`: parse and validate a single YOLO
 //!   label file.
-//! - `civicsense-data ground-truth <manifest.json>` — validate a JSON
+//! - `civicsense-data ground-truth <manifest.json>`: validate a JSON
 //!   collection of ground-truth records.
-//! - `civicsense-data classes` — print the canonical 7-class vocabulary.
+//! - `civicsense-data classes`: print the canonical 7-class vocabulary.
 
 use std::path::PathBuf;
 

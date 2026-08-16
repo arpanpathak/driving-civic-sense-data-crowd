@@ -1,4 +1,4 @@
-# civicsense_datapack
+# civicsense_datapack 🐍
 # =============================================================================
 # Python aggregation tooling for the CivicSense dataset pack.
 #

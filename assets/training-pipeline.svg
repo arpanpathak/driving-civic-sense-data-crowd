@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#4a90d9"/>
+    </marker>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f3f6fb"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="620" rx="12" fill="#fafbfe"/>
+
+  <text x="500" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#2c3e50">📦 Training Data Pipeline</text>
+  <text x="500" y="64" text-anchor="middle" font-size="14" fill="#7f8c8d">Raw sources, aggregated and verified into the 7-class YOLO training layout</text>
+
+  <!-- ============ Row 1: three balanced source cards ============ -->
+  <g>
+    <rect x="60" y="110" width="260" height="120" rx="10" fill="url(#card)" stroke="#bdc3c7"/>
+    <text x="190" y="150" text-anchor="middle" font-size="30">🎥</text>
+    <text x="190" y="180" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Public datasets</text>
+    <text x="190" y="202" text-anchor="middle" font-size="12" fill="#7f8c8d">COCO · BDD100K · UA-DETRAC</text>
+
+    <rect x="370" y="110" width="260" height="120" rx="10" fill="url(#card)" stroke="#bdc3c7"/>
+    <text x="500" y="150" text-anchor="middle" font-size="30">🏗️</text>
+    <text x="500" y="180" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Simulators</text>
+    <text x="500" y="202" text-anchor="middle" font-size="12" fill="#7f8c8d">CARLA · SUMO ground-truth exports</text>
+
+    <rect x="680" y="110" width="260" height="120" rx="10" fill="url(#card)" stroke="#bdc3c7"/>
+    <text x="810" y="150" text-anchor="middle" font-size="30">📷</text>
+    <text x="810" y="180" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Field captures</text>
+    <text x="810" y="202" text-anchor="middle" font-size="12" fill="#7f8c8d">Your dashcam · smartphone clips</text>
+  </g>
+
+  <!-- ============ Row 2: aggregate box ============ -->
+  <rect x="210" y="310" width="580" height="120" rx="12" fill="#eaf3ff" stroke="#4a90d9" stroke-width="2"/>
+  <text x="500" y="344" text-anchor="middle" font-size="17" font-weight="700" fill="#205081">🧪 Aggregation &amp; class mapping</text>
+  <text x="500" y="370" text-anchor="middle" font-size="12" fill="#4a6a9e">aggregate_coco.py  ·  aggregate_bdd100k.py</text>
+  <text x="500" y="392" text-anchor="middle" font-size="12" fill="#4a6a9e">filter to 7 CivicSense classes, normalise boxes to 0..1</text>
+
+  <!-- connectors row1 -> row2 (straight, no overlap) -->
+  <line x1="190" y1="230" x2="340" y2="310" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="500" y1="230" x2="500" y2="310" stroke="#bdc3c7" stroke-width="2"/>
+  <line x1="810" y1="230" x2="660" y2="310" stroke="#bdc3c7" stroke-width="2"/>
+
+  <!-- ============ Row 3: two output cards side by side ============ -->
+  <rect x="150" y="490" width="310" height="96" rx="10" fill="url(#card)" stroke="#27ae60" stroke-width="2"/>
+  <text x="305" y="524" text-anchor="middle" font-size="24">🗂️</text>
+  <text x="318" y="560" text-anchor="middle" font-size="14" font-weight="600" fill="#1e8449">datasets/training</text>
+
+  <rect x="540" y="490" width="310" height="96" rx="10" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/>
+  <text x="695" y="524" text-anchor="middle" font-size="24">✅</text>
+  <text x="710" y="560" text-anchor="middle" font-size="14" font-weight="600" fill="#6c3483">civicsense-data validate</text>
+
+  <line x1="430" y1="430" x2="330" y2="490" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="620" y1="430" x2="670" y2="490" stroke="#8e44ad" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
