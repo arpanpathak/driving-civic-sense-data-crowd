@@ -1,30 +1,49 @@
 <div align="center">
 
-# 🅿 CivicSense Data Pack
+# 🅿️ CivicSense Data Pack
 
 > *"A model is only as honest as the data it's graded on."*
 > *Data, labels, and ground truth that keep CivicSense's perception honest. MIT-licensed, community-contributed.*
 
-**The official training-dataset pack and field-validation ground-truth repository for the [driving-civicsense-vision-model](https://github.com/arpanpathak/driving-civicsense-vision-model), an edge-AI co-pilot for intersection discipline, lane courtesy, and road-hazard alerts.**
+**The official training-dataset pack and field-validation ground-truth repository for [driving-civicsense-vision-model](https://github.com/arpanathak/driving-civicsense-vision-model), an edge-AI co-pilot for intersection discipline, lane courtesy, and road-hazard alerts.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
+<br>
 [![Rust](https://img.shields.io/badge/Rust-1.96+-orange?style=flat-square&logo=rust&logoColor=white)](https://www.rust-lang.org)
 [![YOLOv8](https://img.shields.io/badge/YOLO-v8%2Fv11-00BFFF?style=flat-square)](https://github.com/ultralytics/ultralytics)
+[![tests](https://img.shields.io/badge/tests-27%20passing-green?style=flat-square)](#verify)
+[![clippy](https://img.shields.io/badge/clippy-D%20warnings-important?style=flat-square)](#verify)
+<br>
 [![COCO](https://img.shields.io/badge/COCO-CC%20BY%204.0-999?style=flat-square)](https://cocodataset.org/)
 [![BDD100K](https://img.shields.io/badge/BDD100K-NC--SA-blue?style=flat-square)](https://www.lds.ac.cn/dataset/bdd100k)
 [![UA-DETRAC](https://img.shields.io/badge/UA--DETRAC-Urban-brightgreen?style=flat-square)](https://detrac-db.rit.albany.edu/)
 [![CARLA](https://img.shields.io/badge/Sim-CARLA-00BCF2?style=flat-square)](https://carla.org/)
+[![SUMO](https://img.shields.io/badge/Sim-SUMO-006600?style=flat-square)](https://eclipse.dev/sumo/)
 <br>
-[![tests](https://img.shields.io/badge/tests-27%20passing-green?style=flat-square)](#-verify)
-[![clippy](https://img.shields.io/badge/clippy-D%20warnings-important?style=flat-square)](#-verify)
-[![Submodule](https://img.shields.io/badge/submodule-of%20CivicSense-6a4fa3?style=flat-square)](https://github.com/arpanpathak/driving-civicsense-vision-model)
+[![Submodule](https://img.shields.io/badge/submodule-of%20CivicSense-6a4fa3?style=flat-square)](https://github.com/arpanathak/driving-civicsense-vision-model)
+[![Index](https://img.shields.io/badge/Index-Table%20of%20Contents-2E8B57?style=flat-square)](#index)
 
 </div>
 
 ---
 
-## 🎯 Why this repo exists
+## 📑 Index
+
+- [Why this repo exists](#why-this-repo-exists)
+- [Training data pipeline](#-training-data-pipeline)
+- [Field-validation ground truth](#-field-validation-ground-truth)
+- [The 7-class vocabulary](#-the-7-class-vocabulary)
+- [Repository layout](#-repository-layout)
+- [Quick start](#-quick-start)
+- [Field-validation ground truth (schema)](#-field-validation-ground-truth-schema)
+- [Aggregating public datasets](#-aggregating-public-datasets)
+- [License](#license)
+- [Contributing](#-contributing)
+
+---
+
+## Why this repo exists
 
 CivicSense is built on two pillars:
 
@@ -35,9 +54,9 @@ CivicSense is built on two pillars:
 
 Both pillars need data, but **they need different kinds of data**:
 
-- 🖼️ The **model needs training data**; labelled images of the 7 classes in
+- The **model needs training data**: labelled images of the 7 classes in
   YOLO format that `civicsense train prepare` can consume.
-- 🧾 The **engine needs validation data**; labelled *field ground truth*
+- The **engine needs validation data**: labelled *field ground truth*
   (synchronised ego telemetry, detections, signal phase, and the outcome a
   correct driver+co-pilot should reach) from which we compute a confusion
   matrix over false positives and false negatives.
@@ -47,13 +66,13 @@ reusable and every claim is checkable**. It deliberately ships **no pixels
 in git**; instead it provides the schema, the validators, the
 public-dataset aggregation tooling, and a seed ground-truth manifest.
 
-> 📌 **The default `data/` directory in the main repo is where the training
+> **The default `data/` directory in the main repo is where the training
 > split lands.** Point the aggregation scripts here, validate with
 > `civicsense-data`, then copy into the main repo's `data/civicsense/`.
 
 ---
 
-## 📦 Training Data Pipeline
+## 📦 Training data pipeline
 
 Public datasets, simulators and field captures flow through an aggregator,
 then a strict validator, into the training layout CivicSense consumes:
@@ -62,7 +81,7 @@ then a strict validator, into the training layout CivicSense consumes:
   <img src="assets/training-pipeline.svg" alt="Training data pipeline: sources flow through aggregation and validation into the YOLO training layout" width="820"/>
 </p>
 
-## 🧭 Field-Validation Ground Truth
+## 🧭 Field-validation ground truth
 
 A synchronised snapshot is fed to the decision engine, compared against a
 human-annotated expected verdict, and scored into a confusion matrix:
@@ -80,13 +99,13 @@ These class ids **must match** `ModelConfig::classes` in the main repo's
 
 | `class_id` | Name | Notes |
 |------------|------|-------|
-| 0 | `stop_sign` | 🛑 Stop sign ahead. |
-| 1 | `traffic_light` | 🚦 Signal head (red/yellow/green). |
-| 2 | `crosswalk` | 🚶 Pedestrian crossing markings. |
-| 3 | `vehicle` | 🚗 Passenger car / motorcycle / generic. |
-| 4 | `truck` | 🚚 Heavy truck. |
-| 5 | `bus` | 🚌 Bus. |
-| 6 | `intersection_zone` | ➕ The junction-entrance grid the decision engine checks for occupancy. |
+| 0 | `stop_sign` | Stop sign ahead. |
+| 1 | `traffic_light` | Signal head (red/yellow/green). |
+| 2 | `crosswalk` | Pedestrian crossing markings. |
+| 3 | `vehicle` | Passenger car / motorcycle / generic. |
+| 4 | `truck` | Heavy truck. |
+| 5 | `bus` | Bus. |
+| 6 | `intersection_zone` | The junction-entrance grid the decision engine checks for occupancy. |
 
 Mirrored in Rust as `civicsense_data_pack::classes::CLASS_NAMES` and in
 Python as `civicsense_datapack.schema.CIVICSENSE_CLASSES`. The validators
@@ -187,13 +206,13 @@ PYTHONPATH=. python3 -m civicsense_datapack.aggregate_coco \
     --split train
 ```
 
-> ⚠️ **Heavy images are opt-in.** Run `./scripts/download_public.sh --images`
+> **Heavy images are opt-in.** Run `./scripts/download_public.sh --images`
 > to pull the ~19 GB COCO archive. Read [`docs/DATA_LICENSES.md`](docs/DATA_LICENSES.md)
 > first.
 
 ---
 
-## 🧾 Field-validation ground truth (the decision engine's report card)
+## 🧾 Field-validation ground truth (schema)
 
 The kinematic engine is formal, but a proof only transfers to the real
 world if evaluated against **labelled reality**. Each record in
@@ -222,11 +241,11 @@ seamlessly.
 
 **Seed records included** cover the canonical cases:
 
-- ✅ `green_clear` → should be **safe**
-- ⚠️ `yellow_dilemma` → should be **critical**
-- 🛑 `red_stop` → should be **critical**
-- 🚗 `lead_blocking` → a stopped leader in the box, should be **warning**
-- ↔️ `cutin_right` → an unsignalled right-lane intruder, should be **warning**
+- `green_clear` → should be **safe**
+- `yellow_dilemma` → should be **critical**
+- `red_stop` → should be **critical**
+- `lead_blocking` → a stopped leader in the box, should be **warning**
+- `cutin_right` → an unsignalled right-lane intruder, should be **warning**
 
 Extend the manifest with real captures from your commute (manual) or a
 CARLA/SUMO run (simulator). Keep every record a synchronised snapshot.
