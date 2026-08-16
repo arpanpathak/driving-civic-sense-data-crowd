@@ -26,6 +26,7 @@
 
 - [Why this repo exists](#why-this-repo-exists)
 - [Training data pipeline](#training-data-pipeline)
+- [Model architecture](#model-architecture)
 - [Field-validation ground truth](#field-validation-ground-truth)
 - [The 7-class vocabulary](#the-7-class-vocabulary)
 - [Repository layout](#repository-layout)
@@ -71,13 +72,34 @@ then a strict validator, into the training layout CivicSense consumes:
   <img src="assets/training-pipeline.svg" alt="Training data pipeline" width="820"/>
 </p>
 
+## Model architecture
+
+The labels above feed a YOLOv8-style CNN: a C2f backbone with SPPF, a PAN
+multi-scale neck, and three decoupled detection heads that predict the 7-class
+vocabulary. The full layer-by-layer diagram (with neurons, kernels and tensor
+shapes) lives in `assets/cnn-architecture.svg`:
+
+<p align="center">
+  <img src="assets/cnn-architecture.svg" alt="CivicSense CNN architecture: C2f backbone, SPPF, PAN neck, 3 decoupled detection heads" width="900"/>
+</p>
+
+The head outputs are `(4 box coords + 1 objectness + 7 class scores)` per
+anchor at 80×80, 40×40 and 20×20 scales — the exact shapes the trainer's
+`configs/dataset.yaml` expects.
+
 ## Field-validation ground truth
 
 A synchronised snapshot is fed to the decision engine, compared against a
-human-annotated expected verdict, and scored into a confusion matrix:
+human-annotated expected verdict, and scored into a confusion matrix. The
+scoring flow is in `assets/validation-pipeline.svg`, and the manifest flow
+(how records are versioned and CI-validated) in `assets/ground-truth-pipeline.svg`:
 
 <p align="center">
-  <img src="assets/ground-truth-pipeline.svg" alt="Field-validation pipeline" width="820"/>
+  <img src="assets/validation-pipeline.svg" alt="Field-validation scoring pipeline" width="820"/>
+</p>
+
+<p align="center">
+  <img src="assets/ground-truth-pipeline.svg" alt="Ground-truth manifest pipeline" width="820"/>
 </p>
 
 ---
@@ -122,8 +144,10 @@ driving-civic-sense-data-crowd/
 ├── scripts/
 │   └── download_public.sh
 ├── assets/
+│   ├── cnn-architecture.svg      # full CNN diagram: backbone/neck/heads + neurons
 │   ├── training-pipeline.svg     # training data flow diagram
-│   └── ground-truth-pipeline.svg # field-validation flow diagram
+│   ├── validation-pipeline.svg   # field-validation scoring diagram
+│   └── ground-truth-pipeline.svg # ground-truth manifest flow diagram
 ├── validation/
 │   └── ground-truth/manifest.json   # seed field-validation records
 ├── datasets/training/    # images/{train,val} + labels/{train,val} (gitkeeps)
