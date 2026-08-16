@@ -1,0 +1,81 @@
+{
+  "_comment": "Seed field-validation ground-truth for the CivicSense kinematic decision engine. Extend this collection with real field captures; keep each record a synchronised snapshot. Validate with: cargo run --bin civicsense-data -- ground-truth validation/ground-truth/manifest.json",
+  "_schema": "https://github.com/arpanpathak/driving-civic-sense-data-crowd#ground-truth-schema",
+  "records": [
+    {
+      "id": "gt_seed_001_green_clear",
+      "scenario": "Main & 5th, dry day, clear approach",
+      "mode": "simulator",
+      "light": "green",
+      "time_to_red": 12.0,
+      "outcome": "cleared",
+      "expected_level": "safe",
+      "ego": { "speed": 13.9, "distance_to_stop_line": 55.0 },
+      "detections": []
+    },
+    {
+      "id": "gt_seed_002_yellow_dilemma",
+      "scenario": "Oak & 1st, dilemma-zone approach",
+      "mode": "simulator",
+      "light": "yellow",
+      "time_to_red": 2.4,
+      "outcome": "blocked",
+      "expected_level": "critical",
+      "ego": { "speed": 14.0, "distance_to_stop_line": 25.0 },
+      "detections": []
+    },
+    {
+      "id": "gt_seed_003_red_stop",
+      "scenario": "Elm & 2nd, red light, stable stop",
+      "mode": "manual",
+      "light": "red",
+      "time_to_red": 7.0,
+      "outcome": "stopped",
+      "expected_level": "critical",
+      "ego": { "speed": 0.0, "distance_to_stop_line": 4.5 },
+      "detections": []
+    },
+    {
+      "id": "gt_seed_004_lead_blocking",
+      "scenario": "Pine & 3rd, leader stopped inside the box",
+      "mode": "manual",
+      "light": "green",
+      "time_to_red": 9.0,
+      "outcome": "blocked",
+      "expected_level": "warning",
+      "ego": { "speed": 11.0, "distance_to_stop_line": 12.0 },
+      "detections": [
+        {
+          "bbox": [520.0, 340.0, 640.0, 560.0],
+          "class_id": 3,
+          "speed": 0.0,
+          "lateral_speed": 0.0,
+          "distance": 6.0,
+          "lane": "same",
+          "turn_signal_active": false
+        }
+      ]
+    },
+    {
+      "id": "gt_seed_005_cutin_right",
+      "scenario": "Cedar & 4th, unsignalled right-lane intruder",
+      "mode": "v2i",
+      "light": "green",
+      "time_to_red": 6.5,
+      "outcome": "blocked",
+      "expected_level": "warning",
+      "ego": { "speed": 12.5, "distance_to_stop_line": 30.0 },
+      "detections": [
+        {
+          "bbox": [700.0, 300.0, 820.0, 520.0],
+          "class_id": 3,
+          "speed": 14.0,
+          "lateral_speed": 3.2,
+          "distance": 9.0,
+          "lane": "right",
+          "turn_signal_active": true
+        }
+      ]
+    }
+  ]
+}

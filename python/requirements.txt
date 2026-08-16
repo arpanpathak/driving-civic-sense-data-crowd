@@ -1,0 +1,7 @@
+# Python tooling requirements for the CivicSense dataset pack.
+#
+# The aggregation scripts deliberately avoid heavy ML dependencies; they
+# only need the stdlib. This file is kept for CI convenience and for
+# contributors who want to run the formatters/linters.
+flake8>=6.0
+black>=23.0

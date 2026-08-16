@@ -1,0 +1,38 @@
+# ── Rust ──────────────────────────────────────────────
+/target/
+**/*.rs.bk
+
+# ── Large dataset artifacts (downloaded, not tracked) ─
+# The repo intentionally ships placeholders + downloaders, not GBs of
+# binary imagery. Raw material pulled by scripts/ lives here and stays
+# out of version control.
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+datasets/training/images/train/*
+datasets/training/images/val/*
+datasets/training/labels/train/*
+datasets/training/labels/val/*
+!**/.gitkeep
+
+# ── Python ────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# ── IDE / Editor ─────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── OS ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Logs / cache ─────────────────────────────────────
+*.log
+.tmp/

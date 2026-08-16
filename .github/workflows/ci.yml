@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rust:
+    name: Rust validate + lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - name: Build
+        run: cargo build --all-targets
+      - name: Test
+        run: cargo test
+      - name: Lint (clippy -D warnings)
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Format check
+        run: cargo fmt --check
+
+  python:
+    name: Python schema tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run schema tests
+        run: PYTHONPATH=python python3 python/tests/test_schema.py
+      - name: Validate seed ground-truth via CLI
+        run: |
+          cargo run --bin civicsense-data -- ground-truth validation/ground-truth/manifest.json
