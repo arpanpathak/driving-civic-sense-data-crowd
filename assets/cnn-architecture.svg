@@ -16,6 +16,9 @@
     <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/>
     </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/>
+    </marker>
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
       <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
     </filter>
@@ -199,8 +202,8 @@
   <text x="830" y="655" fill="#c2410c" font-size="15" font-weight="bold" text-anchor="middle">+</text>
   <rect x="880" y="628" width="130" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
   <text x="945" y="654" fill="#15803d" font-size="12.5" font-weight="bold" text-anchor="middle">P3_out</text>
-  <line x1="770" y1="650" x2="817" y2="650" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="843" y1="650" x2="872" y2="650" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="770" y1="650" x2="817" y2="650" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <line x1="843" y1="650" x2="872" y2="650" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
 
   <!-- P4 lane -->
   <rect x="620" y="828" width="150" height="44" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
@@ -210,8 +213,8 @@
   <text x="830" y="855" fill="#c2410c" font-size="15" font-weight="bold" text-anchor="middle">+</text>
   <rect x="880" y="828" width="130" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
   <text x="945" y="854" fill="#15803d" font-size="12.5" font-weight="bold" text-anchor="middle">P4_out</text>
-  <line x1="770" y1="850" x2="817" y2="850" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="843" y1="850" x2="872" y2="850" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="770" y1="850" x2="817" y2="850" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <line x1="843" y1="850" x2="872" y2="850" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
 
   <!-- P5 lane -->
   <rect x="620" y="1028" width="150" height="44" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
@@ -221,13 +224,13 @@
   <text x="830" y="1055" fill="#c2410c" font-size="15" font-weight="bold" text-anchor="middle">+</text>
   <rect x="880" y="1028" width="130" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
   <text x="945" y="1054" fill="#15803d" font-size="12.5" font-weight="bold" text-anchor="middle">P5_out</text>
-  <line x1="770" y1="1050" x2="817" y2="1050" stroke="#ea580c" stroke-width="2" marker-end="url(#arrow)"/>
-  <line x1="843" y1="1050" x2="872" y2="1050" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="770" y1="1050" x2="817" y2="1050" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <line x1="843" y1="1050" x2="872" y2="1050" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
 
   <!-- backbone -> lanes -->
-  <path d="M 200 714 L 200 728 L 540 728 L 540 700 L 612 650" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <path d="M 200 914 L 200 928 L 540 928 L 540 900 L 612 850" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <path d="M 200 1194 L 200 1208 L 580 1208 L 580 1085 L 612 1050" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="364" y1="662" x2="612" y2="650" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+  <line x1="364" y1="862" x2="612" y2="850" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+  <line x1="364" y1="1142" x2="612" y2="1050" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
 
   <!-- top-down path (left spine x=570) -->
   <!-- top-down: up arrows in the gap between lane boxes (x=760) -->
