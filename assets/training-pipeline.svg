@@ -12,7 +12,7 @@
   <rect x="0" y="0" width="1060" height="700" rx="12" fill="#f8fafc"/>
 
   <text x="530" y="42" text-anchor="middle" font-size="26" font-weight="700" fill="#0f172a">CivicSense Training Data Pipeline</text>
-  <text x="530" y="66" text-anchor="middle" font-size="14" fill="#64748b">raw sources → aggregated, verified 7-class YOLO layout → what the CNN in cnn-architecture.svg trains on</text>
+  <text x="530" y="66" text-anchor="middle" font-size="14" fill="#64748b">raw sources -> aggregated, verified 7-class YOLO layout -> what the CNN in cnn-architecture.svg trains on</text>
 
   <!-- Row 1: five source chips -->
   <g>
@@ -49,26 +49,26 @@
 
   <!-- Row 2: aggregation -->
   <rect x="210" y="225" width="640" height="86" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
-  <text x="530" y="252" text-anchor="middle" font-size="16" font-weight="700" fill="#1d4ed8">① Aggregate &amp; remap classes</text>
-  <text x="530" y="274" text-anchor="middle" font-size="12" fill="#3b82f6">aggregate_coco.py · aggregate_bdd100k.py</text>
-  <text x="530" y="294" text-anchor="middle" font-size="11.5" fill="#64748b">80+ upstream classes → 7 CivicSense classes · drop images with zero usable labels</text>
+  <text x="530" y="252" text-anchor="middle" font-size="16" font-weight="700" fill="#1d4ed8">1. Aggregate &amp; remap classes</text>
+  <text x="530" y="274" text-anchor="middle" font-size="12" fill="#3b82f6">aggregate_coco.py  -  aggregate_bdd100k.py</text>
+  <text x="530" y="294" text-anchor="middle" font-size="11.5" fill="#64748b">80+ upstream classes -> 7 CivicSense classes  -  drop images with zero usable labels</text>
 
   <line x1="530" y1="311" x2="530" y2="340" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
 
   <!-- Row 3: normalise + split + verify (3 boxes) -->
   <g>
     <rect x="60" y="345" width="280" height="86" rx="12" fill="url(#card)" stroke="#0d9488" stroke-width="2"/>
-    <text x="200" y="372" text-anchor="middle" font-size="15" font-weight="700" fill="#0f766e">② Normalise boxes</text>
-    <text x="200" y="394" text-anchor="middle" font-size="11.5" fill="#64748b">xywh → 0..1, YOLO .txt</text>
-    <text x="200" y="412" text-anchor="middle" font-size="11.5" fill="#94a3b8">class_id ∈ [0, 7)</text>
+    <text x="200" y="372" text-anchor="middle" font-size="15" font-weight="700" fill="#0f766e">2. Normalise boxes</text>
+    <text x="200" y="394" text-anchor="middle" font-size="11.5" fill="#64748b">xywh -> 0..1, YOLO .txt</text>
+    <text x="200" y="412" text-anchor="middle" font-size="11.5" fill="#94a3b8">class_id in [0, 7)</text>
 
     <rect x="390" y="345" width="280" height="86" rx="12" fill="url(#card)" stroke="#ea580c" stroke-width="2"/>
-    <text x="530" y="372" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">③ Split 90 / 10</text>
+    <text x="530" y="372" text-anchor="middle" font-size="15" font-weight="700" fill="#c2410c">3. Split 90 / 10</text>
     <text x="530" y="394" text-anchor="middle" font-size="11.5" fill="#64748b">stratified by class + scene</text>
     <text x="530" y="412" text-anchor="middle" font-size="11.5" fill="#94a3b8">train / val, reproducible seed</text>
 
     <rect x="720" y="345" width="280" height="86" rx="12" fill="url(#card)" stroke="#7c3aed" stroke-width="2"/>
-    <text x="860" y="372" text-anchor="middle" font-size="15" font-weight="700" fill="#6d28d9">④ Verify layout</text>
+    <text x="860" y="372" text-anchor="middle" font-size="15" font-weight="700" fill="#6d28d9">4. Verify layout</text>
     <text x="860" y="394" text-anchor="middle" font-size="11.5" fill="#64748b">civicsense-data validate</text>
     <text x="860" y="412" text-anchor="middle" font-size="11.5" fill="#94a3b8">schema + label semantics</text>
   </g>
@@ -79,9 +79,9 @@
 
   <!-- Row 4: final layout -->
   <rect x="290" y="505" width="480" height="86" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
-  <text x="530" y="532" text-anchor="middle" font-size="16" font-weight="700" fill="#15803d">datasets/training/ — ready to train</text>
-  <text x="530" y="554" text-anchor="middle" font-size="12" fill="#4ade80">images/{train,val} · labels/{train,val}</text>
-  <text x="530" y="574" text-anchor="middle" font-size="12" fill="#64748b">one .txt per image · dataset.yaml for the trainer</text>
+  <text x="530" y="532" text-anchor="middle" font-size="16" font-weight="700" fill="#15803d">datasets/training/  -  ready to train</text>
+  <text x="530" y="554" text-anchor="middle" font-size="12" fill="#4ade80">images/{train,val}  -  labels/{train,val}</text>
+  <text x="530" y="574" text-anchor="middle" font-size="12" fill="#64748b">one .txt per image  -  dataset.yaml for the trainer</text>
 
   <!-- 7-class chips -->
   <g>

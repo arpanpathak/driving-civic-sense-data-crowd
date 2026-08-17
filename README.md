@@ -76,8 +76,8 @@ shapes) lives in `assets/cnn-architecture.svg`:
 
 Trained as `yolov8n.pt` at `imgsz=640` (see `CLOUD_TRAINING.md`): C2f repeats
 3/6/6/3, channels 16/32/32/64/64/128/128/256/256/256, SPPF pooling, and an
-anchor-free head — each anchor predicts `4 box coords + 7 class scores` (11
-channels, no objectness) at 80×80, 40×40 and 20×20 scales, decoded by
+anchor-free head  -  each anchor predicts `4 box coords + 7 class scores` (11
+channels, no objectness) at 80x80, 40x40 and 20x20 scales, decoded by
 `AnchorGrid` in `src/detection/yolo.rs` into 8400 predictions.
 
 ## Field-validation ground truth
@@ -126,7 +126,7 @@ driving-civic-sense-data-crowd/
 ├── src/
 │   ├── classes.rs        # canonical 7-class vocabulary (single source of truth)
 │   ├── yolo.rs           # YOLO .txt label parser/validator
-│   ├── dataset.rs        # images/ ↔ labels/ split-layout validator
+│   ├── dataset.rs        # images/ <-> labels/ split-layout validator
 │   ├── ground_truth.rs   # field-validation record schema + batch validator
 │   └── bin/civicsense-data.rs  # the CLI front-end
 ├── python/
@@ -228,11 +228,11 @@ describes (Section VI, "Field evaluation data").
 
 **Seed records** cover the canonical cases:
 
-- `green_clear` → **safe**
-- `yellow_dilemma` → **critical**
-- `red_stop` → **critical**
-- `lead_blocking` → **warning**
-- `cutin_right` → **warning**
+- `green_clear` -> **safe**
+- `yellow_dilemma` -> **critical**
+- `red_stop` -> **critical**
+- `lead_blocking` -> **warning**
+- `cutin_right` -> **warning**
 
 ---
 
@@ -240,10 +240,10 @@ describes (Section VI, "Field evaluation data").
 
 | Source | Class overlap | Script | License |
 |--------|--------------|--------|---------|
-| COCO 2017 | car/motorcycle/bus/truck → vehicle/truck/bus; traffic light; stop sign | `aggregate_coco.py` | CC BY 4.0 |
+| COCO 2017 | car/motorcycle/bus/truck -> vehicle/truck/bus; traffic light; stop sign | `aggregate_coco.py` | CC BY 4.0 |
 | BDD100K | car/bus/truck/other vehicle; traffic light; stop sign | `aggregate_bdd100k.py` | CC BY-NC-SA 4.0 |
 | UA-DETRAC | dense urban vehicles | (pattern follows the same code) | research request |
-| CARLA / SUMO | simulator ground truth → field records | see `generate` guidance | per-project |
+| CARLA / SUMO | simulator ground truth -> field records | see `generate` guidance | per-project |
 
 Each script maps upstream categories to CivicSense classes, filters to
 images that carry **at least one** usable label, copies the pixels, and
