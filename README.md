@@ -76,7 +76,7 @@ shapes) lives in `assets/cnn-architecture.svg`:
 
 Trained as `yolov8n.pt` at `imgsz=640` (see `CLOUD_TRAINING.md`): C2f repeats
 3/6/6/3, channels 16/32/32/64/64/128/128/256/256/256, SPPF pooling, and an
-anchor-free head  -  each anchor predicts `4 box coords + 7 class scores` (11
+anchor-free head - each anchor predicts `4 box coords + 7 class scores` (11
 channels, no objectness) at 80x80, 40x40 and 20x20 scales, decoded by
 `AnchorGrid` in `src/detection/yolo.rs` into 8400 predictions.
 

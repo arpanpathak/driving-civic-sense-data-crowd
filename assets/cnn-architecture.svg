@@ -24,13 +24,13 @@
   <rect width="1560" height="1600" fill="url(#bg)"/>
 
   <!-- ============ TITLE ============ -->
-  <text x="780" y="46" fill="#0f172a" font-size="30" font-weight="bold" text-anchor="middle">CivicSense CNN Architecture  -  YOLOv8n Detector (nc = 7)</text>
-  <text x="780" y="76" fill="#64748b" font-size="17" text-anchor="middle">yolov8n.pt  -  imgsz 640 x 640  -  C2f backbone + SPPF  -  PAN neck  -  3-scale anchor-free heads  -  8400 predictions</text>
+  <text x="780" y="46" fill="#0f172a" font-size="30" font-weight="bold" text-anchor="middle">CivicSense CNN Architecture - YOLOv8n Detector (nc = 7)</text>
+  <text x="780" y="76" fill="#64748b" font-size="17" text-anchor="middle">yolov8n.pt - imgsz 640 x 640 - C2f backbone + SPPF - PAN neck - 3-scale anchor-free heads - 8400 predictions</text>
 
   <!-- ============ COLUMN HEADERS ============ -->
-  <text x="290" y="122" fill="#2563eb" font-size="15" font-weight="bold" text-anchor="middle">BACKBONE  -  feature extraction</text>
-  <text x="795" y="122" fill="#ea580c" font-size="15" font-weight="bold" text-anchor="middle">NECK  -  PAN multi-scale fusion</text>
-  <text x="1285" y="122" fill="#16a34a" font-size="15" font-weight="bold" text-anchor="middle">HEADS  -  per-scale prediction</text>
+  <text x="290" y="122" fill="#2563eb" font-size="15" font-weight="bold" text-anchor="middle">BACKBONE - feature extraction</text>
+  <text x="795" y="122" fill="#ea580c" font-size="15" font-weight="bold" text-anchor="middle">NECK - PAN multi-scale fusion</text>
+  <text x="1285" y="122" fill="#16a34a" font-size="15" font-weight="bold" text-anchor="middle">HEADS - per-scale prediction</text>
 
   <!-- ============================================================ -->
   <!-- ============ COLUMN 1 : BACKBONE (YOLOv8n) ============ -->
@@ -61,7 +61,7 @@
   <g fill="#f8fafc"><circle cx="78" cy="279" r="3.5"/><circle cx="78" cy="286" r="3.5"/></g>
   <text x="215" y="288" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Menlo, Consolas, monospace">320x320x16</text>
   <text x="380" y="276" fill="#1e293b" font-size="15" font-weight="bold">Conv 3x3, stride 2</text>
-  <text x="380" y="296" fill="#64748b" font-size="12.5">16 kernels  -  3x3x3 each</text>
+  <text x="380" y="296" fill="#64748b" font-size="12.5">16 kernels - 3x3x3 each</text>
   <text x="380" y="312" fill="#94a3b8" font-size="12">BN + SiLU activation</text>
   <line x1="200" y1="218" x2="200" y2="244" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="212" y="236" fill="#94a3b8" font-size="11">/2</text>
@@ -75,7 +75,7 @@
   <g fill="#f8fafc"><circle cx="78" cy="375" r="3.5"/><circle cx="78" cy="382" r="3.5"/><circle cx="78" cy="389" r="3.5"/></g>
   <text x="215" y="388" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Menlo, Consolas, monospace">160x160x32</text>
   <text x="380" y="376" fill="#1e293b" font-size="15" font-weight="bold">Conv 3x3, stride 2</text>
-  <text x="380" y="396" fill="#64748b" font-size="12.5">32 kernels  -  3x3x16 each</text>
+  <text x="380" y="396" fill="#64748b" font-size="12.5">32 kernels - 3x3x16 each</text>
   <text x="380" y="412" fill="#94a3b8" font-size="12">BN + SiLU activation</text>
   <line x1="200" y1="318" x2="200" y2="344" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="212" y="336" fill="#94a3b8" font-size="11">/2</text>
@@ -102,8 +102,8 @@
   <g fill="#f8fafc"><circle cx="78" cy="572" r="3.5"/><circle cx="78" cy="579" r="3.5"/><circle cx="78" cy="586" r="3.5"/><circle cx="78" cy="593" r="3.5"/></g>
   <text x="215" y="588" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Menlo, Consolas, monospace">80x80x64</text>
   <text x="380" y="576" fill="#1e293b" font-size="15" font-weight="bold">Conv 3x3, stride 2</text>
-  <text x="380" y="596" fill="#64748b" font-size="12.5">64 kernels  -  3x3x32 each</text>
-  <text x="380" y="612" fill="#94a3b8" font-size="12">BN + SiLU  -  P3 level</text>
+  <text x="380" y="596" fill="#64748b" font-size="12.5">64 kernels - 3x3x32 each</text>
+  <text x="380" y="612" fill="#94a3b8" font-size="12">BN + SiLU - P3 level</text>
   <line x1="200" y1="518" x2="200" y2="544" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="212" y="536" fill="#94a3b8" font-size="11">/2</text>
 
@@ -129,8 +129,8 @@
   <g fill="#f8fafc"><circle cx="78" cy="768" r="3.5"/><circle cx="78" cy="775" r="3.5"/><circle cx="78" cy="782" r="3.5"/><circle cx="78" cy="789" r="3.5"/><circle cx="78" cy="796" r="3.5"/></g>
   <text x="215" y="788" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Menlo, Consolas, monospace">40x40x128</text>
   <text x="380" y="776" fill="#1e293b" font-size="15" font-weight="bold">Conv 3x3, stride 2</text>
-  <text x="380" y="796" fill="#64748b" font-size="12.5">128 kernels  -  3x3x64 each</text>
-  <text x="380" y="812" fill="#94a3b8" font-size="12">BN + SiLU  -  P4 level</text>
+  <text x="380" y="796" fill="#64748b" font-size="12.5">128 kernels - 3x3x64 each</text>
+  <text x="380" y="812" fill="#94a3b8" font-size="12">BN + SiLU - P4 level</text>
   <line x1="200" y1="718" x2="200" y2="744" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="212" y="736" fill="#94a3b8" font-size="11">/2</text>
 
@@ -156,8 +156,8 @@
   <g fill="#f8fafc"><circle cx="78" cy="964" r="3.5"/><circle cx="78" cy="971" r="3.5"/><circle cx="78" cy="978" r="3.5"/><circle cx="78" cy="985" r="3.5"/><circle cx="78" cy="992" r="3.5"/><circle cx="78" cy="999" r="3.5"/></g>
   <text x="215" y="988" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Menlo, Consolas, monospace">20x20x256</text>
   <text x="380" y="976" fill="#1e293b" font-size="15" font-weight="bold">Conv 3x3, stride 2</text>
-  <text x="380" y="996" fill="#64748b" font-size="12.5">256 kernels  -  3x3x128 each</text>
-  <text x="380" y="1012" fill="#94a3b8" font-size="12">BN + SiLU  -  P5 level</text>
+  <text x="380" y="996" fill="#64748b" font-size="12.5">256 kernels - 3x3x128 each</text>
+  <text x="380" y="1012" fill="#94a3b8" font-size="12">BN + SiLU - P5 level</text>
   <line x1="200" y1="918" x2="200" y2="944" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
   <text x="212" y="936" fill="#94a3b8" font-size="11">/2</text>
 
@@ -183,7 +183,7 @@
   <g fill="#f8fafc"><circle cx="78" cy="1144" r="3.5"/><circle cx="78" cy="1151" r="3.5"/><circle cx="78" cy="1158" r="3.5"/><circle cx="78" cy="1165" r="3.5"/><circle cx="78" cy="1172" r="3.5"/><circle cx="78" cy="1179" r="3.5"/></g>
   <text x="215" y="1168" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Menlo, Consolas, monospace">20x20x256</text>
   <text x="380" y="1156" fill="#1e293b" font-size="15" font-weight="bold">SPPF</text>
-  <text x="380" y="1174" fill="#64748b" font-size="12.5">spatial pyramid pooling  -  fast</text>
+  <text x="380" y="1174" fill="#64748b" font-size="12.5">spatial pyramid pooling - fast</text>
   <text x="380" y="1190" fill="#94a3b8" font-size="12">parallel 5x5 max-pool branches</text>
   <line x1="200" y1="1118" x2="200" y2="1124" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
 
@@ -193,8 +193,8 @@
 
   <!-- P3 lane -->
   <rect x="620" y="628" width="150" height="44" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="695" y="648" fill="#9a3412" font-size="12.5" font-weight="bold" text-anchor="middle">P3  -  80x80x64</text>
-  <text x="695" y="664" fill="#c2410c" font-size="11" text-anchor="middle" font-family="Menlo, Consolas, monospace">stride 8  -  small objects</text>
+  <text x="695" y="648" fill="#9a3412" font-size="12.5" font-weight="bold" text-anchor="middle">P3 - 80x80x64</text>
+  <text x="695" y="664" fill="#c2410c" font-size="11" text-anchor="middle" font-family="Menlo, Consolas, monospace">stride 8 - small</text>
   <circle cx="830" cy="650" r="13" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
   <text x="830" y="655" fill="#c2410c" font-size="15" font-weight="bold" text-anchor="middle">+</text>
   <rect x="880" y="628" width="130" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
@@ -204,8 +204,8 @@
 
   <!-- P4 lane -->
   <rect x="620" y="828" width="150" height="44" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="695" y="848" fill="#9a3412" font-size="12.5" font-weight="bold" text-anchor="middle">P4  -  40x40x128</text>
-  <text x="695" y="864" fill="#c2410c" font-size="11" text-anchor="middle" font-family="Menlo, Consolas, monospace">stride 16  -  mid objects</text>
+  <text x="695" y="848" fill="#9a3412" font-size="12.5" font-weight="bold" text-anchor="middle">P4 - 40x40x128</text>
+  <text x="695" y="864" fill="#c2410c" font-size="11" text-anchor="middle" font-family="Menlo, Consolas, monospace">stride 16 - mid</text>
   <circle cx="830" cy="850" r="13" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
   <text x="830" y="855" fill="#c2410c" font-size="15" font-weight="bold" text-anchor="middle">+</text>
   <rect x="880" y="828" width="130" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
@@ -215,8 +215,8 @@
 
   <!-- P5 lane -->
   <rect x="620" y="1028" width="150" height="44" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
-  <text x="695" y="1048" fill="#9a3412" font-size="12.5" font-weight="bold" text-anchor="middle">P5  -  20x20x256</text>
-  <text x="695" y="1064" fill="#c2410c" font-size="11" text-anchor="middle" font-family="Menlo, Consolas, monospace">stride 32  -  large objects</text>
+  <text x="695" y="1048" fill="#9a3412" font-size="12.5" font-weight="bold" text-anchor="middle">P5 - 20x20x256</text>
+  <text x="695" y="1064" fill="#c2410c" font-size="11" text-anchor="middle" font-family="Menlo, Consolas, monospace">stride 32 - large</text>
   <circle cx="830" cy="1050" r="13" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
   <text x="830" y="1055" fill="#c2410c" font-size="15" font-weight="bold" text-anchor="middle">+</text>
   <rect x="880" y="1028" width="130" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
@@ -227,7 +227,7 @@
   <!-- backbone -> lanes -->
   <line x1="364" y1="682" x2="612" y2="650" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrow)"/>
   <line x1="364" y1="882" x2="612" y2="850" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <line x1="364" y1="1172" x2="612" y2="1050" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M 200 1194 L 200 1208 L 580 1208 L 580 1085 L 612 1050" fill="none" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrow)"/>
 
   <!-- top-down path (left spine x=570) -->
   <!-- top-down: up arrows in the gap between lane boxes (x=760) -->
@@ -250,7 +250,7 @@
   <g filter="url(#shadow)">
     <rect x="1080" y="600" width="440" height="150" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
   </g>
-  <text x="1100" y="622" fill="#15803d" font-size="13" font-weight="bold">Head  -  P3 (80x80 grid)</text>
+  <text x="1100" y="622" fill="#15803d" font-size="13" font-weight="bold">Head - P3 (80x80 grid)</text>
   <circle cx="1106" cy="650" r="6" fill="#16a34a"/><circle cx="1106" cy="668" r="6" fill="#16a34a"/><circle cx="1106" cy="686" r="6" fill="#16a34a"/>
   <text x="1112" y="712" fill="#94a3b8" font-size="10">features</text>
   <g filter="url(#shadow)">
@@ -262,22 +262,22 @@
   <line x1="1192" y1="664" x2="1226" y2="670" stroke="#94a3b8" stroke-width="1.5"/>
   <line x1="1192" y1="678" x2="1226" y2="690" stroke="#94a3b8" stroke-width="1.5"/>
   <rect x="1230" y="636" width="70" height="76" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="1265" y="626" fill="#1d4ed8" font-size="10" text-anchor="middle" font-weight="bold">box  -  4</text>
+  <text x="1265" y="626" fill="#1d4ed8" font-size="10" text-anchor="middle" font-weight="bold">box - 4</text>
   <circle cx="1265" cy="652" r="6" fill="#2563eb"/><circle cx="1265" cy="672" r="6" fill="#2563eb"/><circle cx="1265" cy="692" r="6" fill="#2563eb"/><circle cx="1265" cy="700" r="6" fill="#2563eb"/>
   <text x="1265" y="722" fill="#64748b" font-size="9.5" text-anchor="middle">cx cy w h</text>
   <rect x="1310" y="636" width="170" height="88" rx="6" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5"/>
-  <text x="1395" y="626" fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">cls  -  7 classes</text>
+  <text x="1395" y="626" fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">cls - 7 classes</text>
   <circle cx="1322" cy="652" r="6" fill="#7c3aed"/><circle cx="1346" cy="652" r="6" fill="#7c3aed"/><circle cx="1370" cy="652" r="6" fill="#7c3aed"/><circle cx="1394" cy="652" r="6" fill="#7c3aed"/><circle cx="1418" cy="652" r="6" fill="#7c3aed"/><circle cx="1442" cy="652" r="6" fill="#7c3aed"/><circle cx="1466" cy="652" r="6" fill="#7c3aed"/>
-  <text x="1395" y="682" fill="#64748b" font-size="9" text-anchor="middle">stop  -  light  -  xwalk</text>
-  <text x="1395" y="698" fill="#64748b" font-size="9" text-anchor="middle">veh  -  truck  -  bus  -  zone</text>
-  <text x="1300" y="742" fill="#475569" font-size="11" text-anchor="middle">-> 80x80 x 11 channels  -  6400 anchors</text>
+  <text x="1395" y="682" fill="#64748b" font-size="9" text-anchor="middle">stop - light - xwalk</text>
+  <text x="1395" y="698" fill="#64748b" font-size="9" text-anchor="middle">veh - truck - bus - zone</text>
+  <text x="1300" y="742" fill="#475569" font-size="11" text-anchor="middle">-> 80x80 x 11 channels - 6400 anchors</text>
   <line x1="1010" y1="650" x2="1072" y2="650" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
 
   <!-- HEAD P4 -->
   <g filter="url(#shadow)">
     <rect x="1080" y="800" width="440" height="150" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
   </g>
-  <text x="1100" y="822" fill="#15803d" font-size="13" font-weight="bold">Head  -  P4 (40x40 grid)</text>
+  <text x="1100" y="822" fill="#15803d" font-size="13" font-weight="bold">Head - P4 (40x40 grid)</text>
   <circle cx="1106" cy="850" r="6" fill="#16a34a"/><circle cx="1106" cy="868" r="6" fill="#16a34a"/><circle cx="1106" cy="886" r="6" fill="#16a34a"/>
   <text x="1112" y="912" fill="#94a3b8" font-size="10">features</text>
   <g filter="url(#shadow)">
@@ -289,22 +289,22 @@
   <line x1="1192" y1="864" x2="1226" y2="870" stroke="#94a3b8" stroke-width="1.5"/>
   <line x1="1192" y1="878" x2="1226" y2="890" stroke="#94a3b8" stroke-width="1.5"/>
   <rect x="1230" y="836" width="70" height="76" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="1265" y="826" fill="#1d4ed8" font-size="10" text-anchor="middle" font-weight="bold">box  -  4</text>
+  <text x="1265" y="826" fill="#1d4ed8" font-size="10" text-anchor="middle" font-weight="bold">box - 4</text>
   <circle cx="1265" cy="852" r="6" fill="#2563eb"/><circle cx="1265" cy="872" r="6" fill="#2563eb"/><circle cx="1265" cy="892" r="6" fill="#2563eb"/><circle cx="1265" cy="900" r="6" fill="#2563eb"/>
   <text x="1265" y="922" fill="#64748b" font-size="9.5" text-anchor="middle">cx cy w h</text>
   <rect x="1310" y="836" width="170" height="88" rx="6" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5"/>
-  <text x="1395" y="826" fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">cls  -  7 classes</text>
+  <text x="1395" y="826" fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">cls - 7 classes</text>
   <circle cx="1322" cy="852" r="6" fill="#7c3aed"/><circle cx="1346" cy="852" r="6" fill="#7c3aed"/><circle cx="1370" cy="852" r="6" fill="#7c3aed"/><circle cx="1394" cy="852" r="6" fill="#7c3aed"/><circle cx="1418" cy="852" r="6" fill="#7c3aed"/><circle cx="1442" cy="852" r="6" fill="#7c3aed"/><circle cx="1466" cy="852" r="6" fill="#7c3aed"/>
-  <text x="1395" y="882" fill="#64748b" font-size="9" text-anchor="middle">stop  -  light  -  xwalk</text>
-  <text x="1395" y="898" fill="#64748b" font-size="9" text-anchor="middle">veh  -  truck  -  bus  -  zone</text>
-  <text x="1300" y="942" fill="#475569" font-size="11" text-anchor="middle">-> 40x40 x 11 channels  -  1600 anchors</text>
+  <text x="1395" y="882" fill="#64748b" font-size="9" text-anchor="middle">stop - light - xwalk</text>
+  <text x="1395" y="898" fill="#64748b" font-size="9" text-anchor="middle">veh - truck - bus - zone</text>
+  <text x="1300" y="942" fill="#475569" font-size="11" text-anchor="middle">-> 40x40 x 11 channels - 1600 anchors</text>
   <line x1="1010" y1="850" x2="1072" y2="850" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
 
   <!-- HEAD P5 -->
   <g filter="url(#shadow)">
     <rect x="1080" y="1000" width="440" height="150" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
   </g>
-  <text x="1100" y="1022" fill="#15803d" font-size="13" font-weight="bold">Head  -  P5 (20x20 grid)</text>
+  <text x="1100" y="1022" fill="#15803d" font-size="13" font-weight="bold">Head - P5 (20x20 grid)</text>
   <circle cx="1106" cy="1050" r="6" fill="#16a34a"/><circle cx="1106" cy="1068" r="6" fill="#16a34a"/><circle cx="1106" cy="1086" r="6" fill="#16a34a"/>
   <text x="1112" y="1112" fill="#94a3b8" font-size="10">features</text>
   <g filter="url(#shadow)">
@@ -316,27 +316,27 @@
   <line x1="1192" y1="1064" x2="1226" y2="1070" stroke="#94a3b8" stroke-width="1.5"/>
   <line x1="1192" y1="1078" x2="1226" y2="1090" stroke="#94a3b8" stroke-width="1.5"/>
   <rect x="1230" y="1036" width="70" height="76" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-  <text x="1265" y="1026" fill="#1d4ed8" font-size="10" text-anchor="middle" font-weight="bold">box  -  4</text>
+  <text x="1265" y="1026" fill="#1d4ed8" font-size="10" text-anchor="middle" font-weight="bold">box - 4</text>
   <circle cx="1265" cy="1052" r="6" fill="#2563eb"/><circle cx="1265" cy="1072" r="6" fill="#2563eb"/><circle cx="1265" cy="1092" r="6" fill="#2563eb"/><circle cx="1265" cy="1100" r="6" fill="#2563eb"/>
   <text x="1265" y="1122" fill="#64748b" font-size="9.5" text-anchor="middle">cx cy w h</text>
   <rect x="1310" y="1036" width="170" height="88" rx="6" fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5"/>
-  <text x="1395" y="1026" fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">cls  -  7 classes</text>
+  <text x="1395" y="1026" fill="#6d28d9" font-size="10" text-anchor="middle" font-weight="bold">cls - 7 classes</text>
   <circle cx="1322" cy="1052" r="6" fill="#7c3aed"/><circle cx="1346" cy="1052" r="6" fill="#7c3aed"/><circle cx="1370" cy="1052" r="6" fill="#7c3aed"/><circle cx="1394" cy="1052" r="6" fill="#7c3aed"/><circle cx="1418" cy="1052" r="6" fill="#7c3aed"/><circle cx="1442" cy="1052" r="6" fill="#7c3aed"/><circle cx="1466" cy="1052" r="6" fill="#7c3aed"/>
-  <text x="1395" y="1082" fill="#64748b" font-size="9" text-anchor="middle">stop  -  light  -  xwalk</text>
-  <text x="1395" y="1098" fill="#64748b" font-size="9" text-anchor="middle">veh  -  truck  -  bus  -  zone</text>
-  <text x="1300" y="1142" fill="#475569" font-size="11" text-anchor="middle">-> 20x20 x 11 channels  -  400 anchors</text>
+  <text x="1395" y="1082" fill="#64748b" font-size="9" text-anchor="middle">stop - light - xwalk</text>
+  <text x="1395" y="1098" fill="#64748b" font-size="9" text-anchor="middle">veh - truck - bus - zone</text>
+  <text x="1300" y="1142" fill="#475569" font-size="11" text-anchor="middle">-> 20x20 x 11 channels - 400 anchors</text>
   <line x1="1010" y1="1050" x2="1072" y2="1050" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
 
   <!-- totals line -->
-  <text x="1300" y="1178" fill="#334155" font-size="12" font-weight="bold" text-anchor="middle">Anchor-free (no objectness)  -  ONNX output [1, 11, 8400] = 6400 + 1600 + 400 predictions</text>
+  <text x="1300" y="1178" fill="#334155" font-size="12" font-weight="bold" text-anchor="middle">Anchor-free (no objectness) - ONNX output [1, 11, 8400] = 6400 + 1600 + 400 predictions</text>
 
   <!-- ============================================================ -->
   <!-- ============ BOTTOM BAND : KERNEL / NEURON DETAIL ============ -->
   <!-- ============================================================ -->
 
   <rect x="40" y="1220" width="1480" height="290" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
-  <text x="780" y="1256" fill="#0f172a" font-size="19" font-weight="bold" text-anchor="middle">One 3x3 conv layer, close up  -  a kernel is a tiny neuron bank</text>
-  <text x="780" y="1278" fill="#64748b" font-size="13" text-anchor="middle">stride s = 1  -  padding p = 1  -  one input channel shown for clarity</text>
+  <text x="780" y="1256" fill="#0f172a" font-size="19" font-weight="bold" text-anchor="middle">One 3x3 conv layer, close up - a kernel is a tiny neuron bank</text>
+  <text x="780" y="1278" fill="#64748b" font-size="13" text-anchor="middle">stride s = 1 - padding p = 1 - one input channel shown for clarity</text>
 
   <!-- input feature map -->
   <text x="120" y="1310" fill="#1e293b" font-size="13" font-weight="bold">Input feature map</text>
@@ -348,7 +348,7 @@
     <rect x="70" y="1424" width="26" height="26" fill="#dbeafe" stroke="#93c5fd"/><rect x="96" y="1424" width="26" height="26" fill="#93c5fd" stroke="#93c5fd"/><rect x="122" y="1424" width="26" height="26" fill="#dbeafe" stroke="#93c5fd"/><rect x="148" y="1424" width="26" height="26" fill="#bfdbfe" stroke="#93c5fd"/><rect x="174" y="1424" width="26" height="26" fill="#dbeafe" stroke="#93c5fd"/>
   </g>
   <rect x="96" y="1346" width="78" height="78" fill="none" stroke="#2563eb" stroke-width="3"/>
-  <text x="135" y="1470" fill="#475569" font-size="11.5" text-anchor="middle">5x5 activations  -  3x3 receptive window</text>
+  <text x="135" y="1470" fill="#475569" font-size="11.5" text-anchor="middle">5x5 activations - 3x3 receptive window</text>
 
   <text x="290" y="1400" fill="#475569" font-size="32" font-weight="bold" text-anchor="middle">x</text>
   <text x="290" y="1423" fill="#94a3b8" font-size="12" text-anchor="middle">element-wise</text>
@@ -369,7 +369,7 @@
   <text x="337" y="1442" fill="#1e40af" font-size="13" text-anchor="middle" font-family="Menlo, Consolas, monospace">w31</text>
   <text x="371" y="1442" fill="#1e40af" font-size="13" text-anchor="middle" font-family="Menlo, Consolas, monospace">w32</text>
   <text x="405" y="1442" fill="#1e40af" font-size="13" text-anchor="middle" font-family="Menlo, Consolas, monospace">w33</text>
-  <text x="371" y="1474" fill="#475569" font-size="11.5" text-anchor="middle">3x3xC_in shared weights  -  w22 = current centre</text>
+  <text x="371" y="1474" fill="#475569" font-size="11.5" text-anchor="middle">3x3xC_in shared weights - w22 = current centre</text>
 
   <text x="490" y="1400" fill="#475569" font-size="32" font-weight="bold" text-anchor="middle">+ b</text>
   <text x="490" y="1423" fill="#94a3b8" font-size="12" text-anchor="middle">bias</text>
@@ -381,7 +381,7 @@
     <rect x="540" y="1390" width="28" height="28" fill="#bbf7d0" stroke="#86efac"/><rect x="568" y="1390" width="28" height="28" fill="#16a34a" stroke="#16a34a" stroke-width="3"/><rect x="596" y="1390" width="28" height="28" fill="#bbf7d0" stroke="#86efac"/>
     <rect x="540" y="1418" width="28" height="28" fill="#dcfce7" stroke="#86efac"/><rect x="568" y="1418" width="28" height="28" fill="#bbf7d0" stroke="#86efac"/><rect x="596" y="1418" width="28" height="28" fill="#dcfce7" stroke="#86efac"/>
   </g>
-  <text x="582" y="1462" fill="#475569" font-size="11.5" text-anchor="middle">same shape  -  one value per position</text>
+  <text x="582" y="1462" fill="#475569" font-size="11.5" text-anchor="middle">same shape - one value per position</text>
 
   <!-- neuron mini-network -->
   <text x="820" y="1310" fill="#1e293b" font-size="13" font-weight="bold">The same operation as a neuron</text>
@@ -397,7 +397,7 @@
     <circle cx="836" cy="1358" r="10" fill="#16a34a"/>
     <text x="836" y="1361" fill="#ffffff" font-size="10" text-anchor="middle">sum</text>
   </g>
-  <text x="700" y="1420" fill="#475569" font-size="11.5" text-anchor="middle">9 spatial inputs  -  shared kernel</text>
+  <text x="700" y="1420" fill="#475569" font-size="11.5" text-anchor="middle">9 spatial inputs - shared kernel</text>
   <text x="700" y="1438" fill="#475569" font-size="11.5" text-anchor="middle">weights = one output neuron</text>
 
   <!-- formula + notes -->
@@ -414,13 +414,13 @@
   <!-- class legend chips -->
   <g>
     <rect x="40" y="1540" width="1480" height="2" fill="#e2e8f0"/>
-    <text x="60" y="1566" fill="#334155" font-size="12.5" font-weight="bold">7-class vocabulary (classes.rs  -  single source of truth):</text>
-    <rect x="390" y="1552" width="120" height="26" rx="13" fill="#fee2e2"/><text x="450" y="1569" fill="#b91c1c" font-size="12" text-anchor="middle">stop_sign  -  0</text>
-    <rect x="520" y="1552" width="120" height="26" rx="13" fill="#fef3c7"/><text x="580" y="1569" fill="#b45309" font-size="12" text-anchor="middle">traffic_light  -  1</text>
-    <rect x="650" y="1552" width="120" height="26" rx="13" fill="#dbeafe"/><text x="710" y="1569" fill="#1d4ed8" font-size="12" text-anchor="middle">crosswalk  -  2</text>
-    <rect x="780" y="1552" width="120" height="26" rx="13" fill="#dcfce7"/><text x="840" y="1569" fill="#15803d" font-size="12" text-anchor="middle">vehicle  -  3</text>
-    <rect x="910" y="1552" width="120" height="26" rx="13" fill="#cffafe"/><text x="970" y="1569" fill="#0e7490" font-size="12" text-anchor="middle">truck  -  4</text>
-    <rect x="1040" y="1552" width="120" height="26" rx="13" fill="#ede9fe"/><text x="1100" y="1569" fill="#6d28d9" font-size="12" text-anchor="middle">bus  -  5</text>
-    <rect x="1170" y="1552" width="150" height="26" rx="13" fill="#fce7f3"/><text x="1245" y="1569" fill="#be185d" font-size="12" text-anchor="middle">intersection_zone  -  6</text>
+    <text x="60" y="1566" fill="#334155" font-size="12.5" font-weight="bold">7-class vocabulary (classes.rs - single source of truth):</text>
+    <rect x="390" y="1552" width="120" height="26" rx="13" fill="#fee2e2"/><text x="450" y="1569" fill="#b91c1c" font-size="12" text-anchor="middle">stop_sign - 0</text>
+    <rect x="520" y="1552" width="120" height="26" rx="13" fill="#fef3c7"/><text x="580" y="1569" fill="#b45309" font-size="12" text-anchor="middle">traffic_light - 1</text>
+    <rect x="650" y="1552" width="120" height="26" rx="13" fill="#dbeafe"/><text x="710" y="1569" fill="#1d4ed8" font-size="12" text-anchor="middle">crosswalk - 2</text>
+    <rect x="780" y="1552" width="120" height="26" rx="13" fill="#dcfce7"/><text x="840" y="1569" fill="#15803d" font-size="12" text-anchor="middle">vehicle - 3</text>
+    <rect x="910" y="1552" width="120" height="26" rx="13" fill="#cffafe"/><text x="970" y="1569" fill="#0e7490" font-size="12" text-anchor="middle">truck - 4</text>
+    <rect x="1040" y="1552" width="120" height="26" rx="13" fill="#ede9fe"/><text x="1100" y="1569" fill="#6d28d9" font-size="12" text-anchor="middle">bus - 5</text>
+    <rect x="1170" y="1552" width="150" height="26" rx="13" fill="#fce7f3"/><text x="1245" y="1569" fill="#be185d" font-size="12" text-anchor="middle">intersection_zone - 6</text>
   </g>
 </svg>
